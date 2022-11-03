@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: demoapi
-        image: demoapi:v1
+        image: nginx
         ports:
         - containerPort: 80
 ---
@@ -25,10 +25,10 @@ kind: Service
 metadata:
   name: demoapi-service
 spec:
-  type: NodePort
+  type: LoadBalancer
   selector:
     app: demoapi
   ports:
     - protocol: TCP
-      port: 80
-      nodePort: 30000
+      port: 8083
+      targetPort: 80
