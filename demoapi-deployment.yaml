@@ -5,7 +5,7 @@ metadata:
   labels:
     app: demoapi
 spec:
-  replicas: 3
+  replicas: 5
   selector:
     matchLabels:
       app: demoapi
@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: demoapi
-        image: nginx
+        image: demoapi:v2
         ports:
         - containerPort: 80
 ---
